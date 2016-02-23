@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="iF2-bt-yj6">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--Slider View Controller-->
+        <scene sceneID="7Zh-we-sgR">
+            <objects>
+                <viewController id="iF2-bt-yj6" customClass="SliderViewController" customModule="XRSliderMenu_master" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xkH-07-x9n"/>
+                        <viewControllerLayoutGuide type="bottom" id="vl0-d7-wWj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="klu-mR-ZdO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gGa-nx-mBb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-25" y="227"/>
+        </scene>
+        <!--Main View Controller-->
+        <scene sceneID="TMy-4V-12g">
+            <objects>
+                <viewController storyboardIdentifier="MainViewController" id="Yl0-iO-KV7" customClass="MainViewController" customModule="XRSliderMenu_master" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Nf7-jP-Hbl"/>
+                        <viewControllerLayoutGuide type="bottom" id="mUi-il-p0J"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DCz-pI-Eqv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="f4s-WA-Yr8"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="z2C-tR-hj9">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="BK9-ga-SUG">
+                            <rect key="frame" x="96" y="7" width="128" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="消息"/>
+                                <segment title="电话"/>
+                            </segments>
+                        </segmentedControl>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="YSd-v4-MKL"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="segmentControl" destination="BK9-ga-SUG" id="Yhp-4F-9BB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bsr-vW-CBd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="871" y="227"/>
+        </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="ahO-nF-PeF">
+            <objects>
+                <viewController storyboardIdentifier="MenuViewController" id="Uop-X5-3s1" customClass="MenuViewController" customModule="XRSliderMenu_master" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="t3l-Zf-ISy"/>
+                        <viewControllerLayoutGuide type="bottom" id="HQO-69-UUF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gxi-Ne-xqX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="191-5a-MyZ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="head.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="mZ0-Ht-Ztk">
+                                <rect key="frame" x="20" y="44" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="hVD-U3-gDu"/>
+                                    <constraint firstAttribute="height" constant="50" id="ucW-TM-eJo"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="黯丶野火" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N7G-k7-Lw4">
+                                <rect key="frame" x="85" y="49" width="68" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" id="Bia-mP-Mzk"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" id="cvC-d6-BdK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="“黯丶野火”" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5p-uS-JFT">
+                                <rect key="frame" x="20" y="104" width="200" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="YTO-Gu-hRF"/>
+                                    <constraint firstAttribute="height" constant="20" id="ao2-ee-lls"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Z6G-I7-GO1">
+                                <rect key="frame" x="0.0" y="144" width="250" height="336"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="wqt-7m-l7q"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="Uop-X5-3s1" id="wat-r4-S1i"/>
+                                    <outlet property="delegate" destination="Uop-X5-3s1" id="l3C-9c-hbd"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Z6G-I7-GO1" firstAttribute="top" secondItem="j5p-uS-JFT" secondAttribute="bottom" constant="20" id="4yb-fu-8pZ"/>
+                            <constraint firstAttribute="bottom" secondItem="191-5a-MyZ" secondAttribute="bottom" id="Lqb-fU-1cr"/>
+                            <constraint firstItem="mZ0-Ht-Ztk" firstAttribute="top" secondItem="t3l-Zf-ISy" secondAttribute="bottom" constant="24" id="Np5-Nk-cgg"/>
+                            <constraint firstItem="N7G-k7-Lw4" firstAttribute="top" secondItem="mZ0-Ht-Ztk" secondAttribute="top" constant="5" id="Qdt-nK-KIN"/>
+                            <constraint firstItem="HQO-69-UUF" firstAttribute="top" secondItem="Z6G-I7-GO1" secondAttribute="bottom" id="V9P-h5-beI"/>
+                            <constraint firstItem="N7G-k7-Lw4" firstAttribute="leading" secondItem="mZ0-Ht-Ztk" secondAttribute="trailing" constant="15" id="XPE-W4-Lj8"/>
+                            <constraint firstItem="mZ0-Ht-Ztk" firstAttribute="leading" secondItem="gxi-Ne-xqX" secondAttribute="leading" constant="20" id="ao1-cK-G7r"/>
+                            <constraint firstItem="j5p-uS-JFT" firstAttribute="leading" secondItem="mZ0-Ht-Ztk" secondAttribute="leading" id="gLp-0W-lfV"/>
+                            <constraint firstItem="j5p-uS-JFT" firstAttribute="top" secondItem="mZ0-Ht-Ztk" secondAttribute="bottom" constant="10" id="m6X-Fc-akD"/>
+                            <constraint firstItem="191-5a-MyZ" firstAttribute="leading" secondItem="gxi-Ne-xqX" secondAttribute="leading" id="mOO-OP-L5r"/>
+                            <constraint firstItem="191-5a-MyZ" firstAttribute="top" secondItem="gxi-Ne-xqX" secondAttribute="top" id="mpc-vY-atN"/>
+                            <constraint firstItem="Z6G-I7-GO1" firstAttribute="leading" secondItem="gxi-Ne-xqX" secondAttribute="leading" id="nY0-Ql-2LD"/>
+                            <constraint firstAttribute="trailing" secondItem="191-5a-MyZ" secondAttribute="trailing" id="sWj-k5-7PX"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="backImageView" destination="191-5a-MyZ" id="UJ5-8E-xrW"/>
+                        <outlet property="headImage" destination="mZ0-Ht-Ztk" id="Gd3-BH-aSK"/>
+                        <outlet property="myTableView" destination="Z6G-I7-GO1" id="Gbh-qo-Dhw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wki-jc-uVN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1220" y="227"/>
+        </scene>
+        <!--Root Navigation Controller-->
+        <scene sceneID="1P5-L4-m9J">
+            <objects>
+                <navigationController storyboardIdentifier="RootNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="tGk-Ew-u5Z" customClass="RootNavigationController" customModule="XRSliderMenu_master" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PMf-fB-rlW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Yl0-iO-KV7" kind="relationship" relationship="rootViewController" id="wsX-fm-N6I"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0oA-1G-Tp7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="471" y="227"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="head.jpg" width="400" height="400"/>
+    </resources>
+</document>
