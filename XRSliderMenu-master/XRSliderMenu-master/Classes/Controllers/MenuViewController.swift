@@ -31,7 +31,9 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.myTableView.registerNib(UINib(nibName: "MyCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "MyCell")
         self.myTableView.separatorStyle = .None
         self.myTableView.backgroundColor = UIColor.clearColor()
-        self.myTableView.tableFooterView = UIView()
+        let footerVw = NSBundle.mainBundle().loadNibNamed("MessageFooterView", owner: nil, options: nil).last as? MessageFooterView
+        footerVw?.backgroundColor = UIColor.clearColor()
+        self.myTableView.tableFooterView = footerVw
     }
     
     override func didReceiveMemoryWarning() {

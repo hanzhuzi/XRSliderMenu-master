@@ -40,11 +40,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="53" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gEI-Zs-rAK">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <searchBar key="tableFooterView" contentMode="redraw" text="" id="ohd-hB-vXd">
-                                    <rect key="frame" x="0.0" y="64" width="320" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                </searchBar>
+                                <connections>
+                                    <outlet property="dataSource" destination="Yl0-iO-KV7" id="asj-BC-C2h"/>
+                                    <outlet property="delegate" destination="Yl0-iO-KV7" id="9VD-2f-E7k"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -68,11 +67,14 @@
                                 <segment title="电话"/>
                             </segments>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="YSd-v4-MKL"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="YSd-v4-MKL">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="myTableView" destination="gEI-Zs-rAK" id="Eth-3a-5Yu"/>
                         <outlet property="searchDisplayController" destination="UY7-tX-rY5" id="6eZ-yD-Cp3"/>
                         <outlet property="segmentControl" destination="BK9-ga-SUG" id="Yhp-4F-9BB"/>
                     </connections>

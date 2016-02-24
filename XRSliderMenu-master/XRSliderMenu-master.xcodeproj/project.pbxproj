@@ -21,6 +21,11 @@
 		01943F491C7C72E8002A4D0D /* MyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01943F471C7C72E8002A4D0D /* MyCell.swift */; };
 		01943F4A1C7C72E8002A4D0D /* MyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01943F481C7C72E8002A4D0D /* MyCell.xib */; };
 		01F4920A1C7D7F950097E99B /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F492091C7D7F950097E99B /* WalletViewController.swift */; };
+		01F4920D1C7DC6550097E99B /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F4920B1C7DC6550097E99B /* MessageCell.swift */; };
+		01F4920E1C7DC6550097E99B /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01F4920C1C7DC6550097E99B /* MessageCell.xib */; };
+		01F492101C7DD42C0097E99B /* gz.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 01F4920F1C7DD42C0097E99B /* gz.jpeg */; };
+		01F492121C7DD5BC0097E99B /* MessageFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01F492111C7DD5BC0097E99B /* MessageFooterView.xib */; };
+		01F492141C7DD7270097E99B /* MessageFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F492131C7DD7270097E99B /* MessageFooterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +66,11 @@
 		01943F471C7C72E8002A4D0D /* MyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCell.swift; sourceTree = "<group>"; };
 		01943F481C7C72E8002A4D0D /* MyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCell.xib; sourceTree = "<group>"; };
 		01F492091C7D7F950097E99B /* WalletViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
+		01F4920B1C7DC6550097E99B /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		01F4920C1C7DC6550097E99B /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
+		01F4920F1C7DD42C0097E99B /* gz.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gz.jpeg; sourceTree = "<group>"; };
+		01F492111C7DD5BC0097E99B /* MessageFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageFooterView.xib; sourceTree = "<group>"; };
+		01F492131C7DD7270097E99B /* MessageFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageFooterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +174,7 @@
 		01943F3D1C7C3A15002A4D0D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				01F4920F1C7DD42C0097E99B /* gz.jpeg */,
 				01943F441C7C609B002A4D0D /* head.jpg */,
 			);
 			path = Resources;
@@ -174,6 +185,10 @@
 			children = (
 				01943F471C7C72E8002A4D0D /* MyCell.swift */,
 				01943F481C7C72E8002A4D0D /* MyCell.xib */,
+				01F4920B1C7DC6550097E99B /* MessageCell.swift */,
+				01F4920C1C7DC6550097E99B /* MessageCell.xib */,
+				01F492111C7DD5BC0097E99B /* MessageFooterView.xib */,
+				01F492131C7DD7270097E99B /* MessageFooterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -282,9 +297,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01F492101C7DD42C0097E99B /* gz.jpeg in Resources */,
 				01943F321C7C0FED002A4D0D /* Main.storyboard in Resources */,
+				01F4920E1C7DC6550097E99B /* MessageCell.xib in Resources */,
 				0137B4181C7C0C3E00523732 /* LaunchScreen.storyboard in Resources */,
 				0137B4151C7C0C3E00523732 /* Assets.xcassets in Resources */,
+				01F492121C7DD5BC0097E99B /* MessageFooterView.xib in Resources */,
 				01943F451C7C609B002A4D0D /* head.jpg in Resources */,
 				01943F4A1C7C72E8002A4D0D /* MyCell.xib in Resources */,
 			);
@@ -312,6 +330,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				01943F341C7C112F002A4D0D /* SliderViewController.swift in Sources */,
+				01F492141C7DD7270097E99B /* MessageFooterView.swift in Sources */,
+				01F4920D1C7DC6550097E99B /* MessageCell.swift in Sources */,
 				0137B4441C7C0E3200523732 /* MenuViewController.swift in Sources */,
 				01F4920A1C7D7F950097E99B /* WalletViewController.swift in Sources */,
 				0137B40E1C7C0C3E00523732 /* AppDelegate.swift in Sources */,
