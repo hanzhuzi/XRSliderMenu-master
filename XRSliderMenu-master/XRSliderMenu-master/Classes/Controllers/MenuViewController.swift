@@ -14,6 +14,9 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var backImageView: UIImageView!
     @IBOutlet weak var headImage: UIImageView!
     
+    // 点击tableViewCell的回调
+    var tapTableClosure: ((NSIndexPath) -> Void)!
+    
     var titleArray: [String] = ["开通会员", "QQ钱包", "个性装扮", "我的收藏", "我的相册", "我的文件"]
     
     override func viewDidLoad() {
@@ -61,5 +64,11 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 40.0
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if self.tapTableClosure != nil {
+            self.tapTableClosure(indexPath)
+        }
     }
 }

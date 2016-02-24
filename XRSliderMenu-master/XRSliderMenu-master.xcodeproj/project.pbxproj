@@ -20,6 +20,7 @@
 		01943F451C7C609B002A4D0D /* head.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01943F441C7C609B002A4D0D /* head.jpg */; };
 		01943F491C7C72E8002A4D0D /* MyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01943F471C7C72E8002A4D0D /* MyCell.swift */; };
 		01943F4A1C7C72E8002A4D0D /* MyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01943F481C7C72E8002A4D0D /* MyCell.xib */; };
+		01F4920A1C7D7F950097E99B /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F492091C7D7F950097E99B /* WalletViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		01943F441C7C609B002A4D0D /* head.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = head.jpg; sourceTree = "<group>"; };
 		01943F471C7C72E8002A4D0D /* MyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCell.swift; sourceTree = "<group>"; };
 		01943F481C7C72E8002A4D0D /* MyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCell.xib; sourceTree = "<group>"; };
+		01F492091C7D7F950097E99B /* WalletViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 				0137B4431C7C0E3200523732 /* MenuViewController.swift */,
 				0137B4451C7C0E3B00523732 /* MainViewController.swift */,
 				01943F331C7C112F002A4D0D /* SliderViewController.swift */,
+				01F492091C7D7F950097E99B /* WalletViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 			files = (
 				01943F341C7C112F002A4D0D /* SliderViewController.swift in Sources */,
 				0137B4441C7C0E3200523732 /* MenuViewController.swift in Sources */,
+				01F4920A1C7D7F950097E99B /* WalletViewController.swift in Sources */,
 				0137B40E1C7C0C3E00523732 /* AppDelegate.swift in Sources */,
 				01943F491C7C72E8002A4D0D /* MyCell.swift in Sources */,
 				0137B4461C7C0E3B00523732 /* MainViewController.swift in Sources */,

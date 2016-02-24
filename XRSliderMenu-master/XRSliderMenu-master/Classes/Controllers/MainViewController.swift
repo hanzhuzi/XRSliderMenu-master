@@ -9,17 +9,19 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+    
     @IBOutlet weak var segmentControl: UISegmentedControl!
+    
+    var tapHeaderClosure: ((UIButton?) -> Void)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
         let iconBtn = UIButton(frame: CGRectMake(2, 0, 38, 38))
         iconBtn.setImage(UIImage(named: "head.jpg"), forState: .Normal)
         iconBtn.layer.masksToBounds = true
         iconBtn.layer.cornerRadius = iconBtn.frame.width * 0.5
+        iconBtn.addTarget(self, action: "tapHeader:", forControlEvents: .TouchUpInside)
         
         let leftItem = UIBarButtonItem(customView: iconBtn)
         let seperatorItem = UIBarButtonItem(barButtonSystemItem: .FixedSpace, target: nil, action: nil)
@@ -30,6 +32,10 @@ class MainViewController: UIViewController {
         self.segmentControl.setTitleTextAttributes([NSForegroundColorAttributeName : UIColor.whiteColor()], forState: .Normal)
         self.segmentControl.setTitleTextAttributes([NSForegroundColorAttributeName : UIColor(red: 26 / 255.0, green: 184 / 255.0, blue: 242 / 255.0, alpha: 1.0)], forState: .Selected)
         self.segmentControl.tintColor = UIColor.whiteColor()
+    }
+    
+    func tapHeader(btn: UIButton) {
+        
     }
     
     override func didReceiveMemoryWarning() {

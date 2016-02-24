@@ -29,6 +29,8 @@ class SliderViewController: UIViewController {
     var mainVc: MainViewController!
     // 菜单页控制器
     var menuVc: MenuViewController?
+    var dragFromLeftToRight: Bool = false
+    var dragFromRightToLeft: Bool = false
     
     // 菜单页当前的状态
     var currentState = MenuState.UN_Display {
@@ -54,9 +56,10 @@ class SliderViewController: UIViewController {
         self.mainNavigationCtrl = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("RootNavigationController") as! RootNavigationController
         self.view.addSubview(self.mainNavigationCtrl.view)
         
-        self.mainNavigationCtrl.navigationItem.leftBarButtonItem?.action = Selector("tapHeader")
-        
         self.mainVc = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
+        self.mainVc.tapHeaderClosure = { (btn) -> Void in
+            
+        }
         // 拖动手势， 单击手势
         let panGesture = UIPanGestureRecognizer(target: self, action: "handlePanGesture:")
         mainNavigationCtrl.view.addGestureRecognizer(panGesture)
@@ -68,9 +71,13 @@ class SliderViewController: UIViewController {
     // 点击头像
     func tapHeader() {
         if currentState == .Displayed {
-            self.mainVcAnimated(false)
+            self.mainVcAnimated(false, completion: { (finished) -> Void in
+                
+            })
         }else {
-            self.mainVcAnimated(true)
+            self.mainVcAnimated(true, completion: { (finished) -> Void in
+                
+            })
         }
     }
     
@@ -80,33 +87,56 @@ class SliderViewController: UIViewController {
         case .Began:
             // 开始拖动
             // 判断拖动的方向
-            let dragFromLeftToRight = recognizer.velocityInView(self.view).x > 0
+            self.dragFromLeftToRight = recognizer.velocityInView(self.view).x > 0
             // 刚刚拖动，这时添加侧滑菜单
-            if currentState == .UN_Display && dragFromLeftToRight {
+            if currentState == .UN_Display && self.dragFromLeftToRight {
                 // 改变状态
                 currentState = .DisPlaying
+                self.dragFromRightToLeft = false
                 self.addMenuVc()
-            }else if currentState != .UN_Display && !dragFromLeftToRight {
-                print("rightToLeft")
+            }else if currentState != .UN_Display && !self.dragFromLeftToRight {
+                self.dragFromLeftToRight = false
+                self.dragFromRightToLeft = true
             }
         case .Changed:
             // 主视图的坐标跟随手指的移动而移动
             var posX = recognizer.view!.frame.origin.x + recognizer.translationInView(self.view).x
+            let allowDragWidth = self.mainNavigationCtrl.view.frame.width - menuDisplayedOffSet
             // x等于0则不允许拖动了
             if posX < 0.0 {
                 posX = 0.0
-            }else if (posX > self.mainNavigationCtrl.view.frame.width - menuDisplayedOffSet) {
-                posX = self.mainNavigationCtrl.view.frame.width - menuDisplayedOffSet
+            }else if (posX > allowDragWidth) {
+                posX = allowDragWidth
             }
-            
-            recognizer.view?.frame.origin.x = posX < 0 ? 0 : posX
-            recognizer.setTranslation(CGPointZero, inView: self.view)
-            
+            if self.dragFromLeftToRight {
+                recognizer.view?.frame.origin.x = posX < 0 ? 0 : posX
+                
+                recognizer.setTranslation(CGPointZero, inView: self.view)
+            }else if self.dragFromRightToLeft {
+                recognizer.view?.frame.origin.x = posX < 0 ? 0 : posX
+                recognizer.setTranslation(CGPointZero, inView: self.view)
+            }
+            // 计算滑动百分比
+            let dragPrecent = posX / allowDragWidth
+            print("\(dragPrecent)")
+            if let menu = self.menuVc {
+                menu.view.alpha = dragPrecent
+            }
         case .Ended:
             // 根据页面滑动是否过半，决定展开还是收起侧滑菜单
             if self.currentState != .UN_Display {
                 let hasMoveHalf = recognizer.view?.center.x > self.view!.frame.width
-                self.mainVcAnimated(hasMoveHalf)
+                self.mainVcAnimated(hasMoveHalf, completion: { (finished) -> Void in
+                    if finished {
+                        if self.currentState == .Displayed {
+                            if let menu = self.menuVc {
+                                UIView.animateWithDuration(0.1, animations: { () -> Void in
+                                    menu.view.alpha = 1.0
+                                })
+                            }
+                        }
+                    }
+                })
             }
         default:
             break
@@ -117,7 +147,9 @@ class SliderViewController: UIViewController {
     func handleTapGesture() {
         // 点击主页面收起菜单
         if currentState == .Displayed {
-            self.mainVcAnimated(false)
+            self.mainVcAnimated(false, completion: { (finished) -> Void in
+                
+            })
         }
     }
     
@@ -125,6 +157,18 @@ class SliderViewController: UIViewController {
     func addMenuVc() {
         if menuVc == nil {
             menuVc = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("MenuViewController") as? MenuViewController
+            
+            menuVc?.tapTableClosure = { (indexPath) -> Void in
+                let walletVc = WalletViewController()
+                self.navigationController?.pushViewController(walletVc, animated: true)
+                // 收起菜单
+                self.mainVcAnimated(false, completion: { (finished) -> Void in
+                    if finished {
+                        
+                    }
+                })
+            }
+            
             // 将menuVc的视图插入到当前控制器的视图层，并置顶
             self.view.insertSubview(menuVc!.view, atIndex: 0)
             // 建立父子控制器关系
@@ -134,21 +178,22 @@ class SliderViewController: UIViewController {
     }
     
     // 主页面自动展开，收起动画
-    func mainVcAnimated(isDisplay: Bool) {
+    func mainVcAnimated(isDisplay: Bool, completion: ((Bool) -> Void)?) {
         if isDisplay {
             // 更新当前菜单的状态
             currentState = .Displayed
             let targetDistance = self.mainNavigationCtrl.view.frame.width - menuDisplayedOffSet
-            self.animatedMainVcWithPositon(targetDistance, completion: { (finied) -> Void in
-                
+            self.animatedMainVcWithPositon(targetDistance, completion: { (finished) -> Void in
+                completion!(finished)
             })
         }else {
-            self.animatedMainVcWithPositon(0.0, completion: { (finied) -> Void in
+            self.animatedMainVcWithPositon(0.0, completion: { (finished) -> Void in
                 // 动画结束后更新状态
                 self.currentState = .UN_Display
                 // 移除左侧视图，释放内存
                 self.menuVc!.view.removeFromSuperview()
                 self.menuVc = nil
+                completion!(finished)
             })
         }
     }
@@ -167,11 +212,18 @@ class SliderViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.navigationController?.navigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.navigationController?.navigationBarHidden = false
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         self.setupUI()
     }
