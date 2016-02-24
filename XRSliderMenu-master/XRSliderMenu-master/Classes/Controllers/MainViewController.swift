@@ -21,7 +21,7 @@ class MainViewController: UIViewController {
         iconBtn.setImage(UIImage(named: "head.jpg"), forState: .Normal)
         iconBtn.layer.masksToBounds = true
         iconBtn.layer.cornerRadius = iconBtn.frame.width * 0.5
-        iconBtn.addTarget(self, action: "tapHeader:", forControlEvents: .TouchUpInside)
+        iconBtn.addTarget(self, action: "tapHeadAction:", forControlEvents: .TouchUpInside)
         
         let leftItem = UIBarButtonItem(customView: iconBtn)
         let seperatorItem = UIBarButtonItem(barButtonSystemItem: .FixedSpace, target: nil, action: nil)
@@ -34,8 +34,10 @@ class MainViewController: UIViewController {
         self.segmentControl.tintColor = UIColor.whiteColor()
     }
     
-    func tapHeader(btn: UIButton) {
-        
+    func tapHeadAction(btn: UIButton) {
+        if self.tapHeaderClosure != nil {
+            self.tapHeaderClosure(btn)
+        }
     }
     
     override func didReceiveMemoryWarning() {

@@ -56,10 +56,11 @@ class SliderViewController: UIViewController {
         self.mainNavigationCtrl = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("RootNavigationController") as! RootNavigationController
         self.view.addSubview(self.mainNavigationCtrl.view)
         
-        self.mainVc = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
-        self.mainVc.tapHeaderClosure = { (btn) -> Void in
-            
+        self.mainVc = mainNavigationCtrl.viewControllers.first as! MainViewController
+        self.mainVc.tapHeaderClosure = {(btn) -> Void in
+            self.tapHeader()
         }
+        
         // 拖动手势， 单击手势
         let panGesture = UIPanGestureRecognizer(target: self, action: "handlePanGesture:")
         mainNavigationCtrl.view.addGestureRecognizer(panGesture)
@@ -181,6 +182,9 @@ class SliderViewController: UIViewController {
     func mainVcAnimated(isDisplay: Bool, completion: ((Bool) -> Void)?) {
         if isDisplay {
             // 更新当前菜单的状态
+            if self.menuVc == nil {
+                self.addMenuVc()
+            }
             currentState = .Displayed
             let targetDistance = self.mainNavigationCtrl.view.frame.width - menuDisplayedOffSet
             self.animatedMainVcWithPositon(targetDistance, completion: { (finished) -> Void in
@@ -200,7 +204,7 @@ class SliderViewController: UIViewController {
     
     // 主页移动动画
     func animatedMainVcWithPositon(targetPos: CGFloat, completion: ((finied: Bool) -> Void)! = nil) {
-        UIView.animateWithDuration(0.6, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: .CurveEaseInOut, animations: { [weak self]() -> Void in
+        UIView.animateWithDuration(0.6, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.5, options: .CurveEaseInOut, animations: { [weak self]() -> Void in
             if let weakSelf = self {
                 weakSelf.mainNavigationCtrl.view.frame.origin.x = targetPos
             }
