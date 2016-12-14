@@ -20,7 +20,7 @@ class MessageCell: UITableViewCell {
         self.headImageView.layer.cornerRadius = 45.0 * 0.5
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

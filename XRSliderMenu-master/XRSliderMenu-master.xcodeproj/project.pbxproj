@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		013793271E00EC0E00E5814D /* PerspectSliderMenuHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013793261E00EC0E00E5814D /* PerspectSliderMenuHeader.swift */; };
+		013793291E00EC1C00E5814D /* PerspectSliderMenuHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 013793281E00EC1C00E5814D /* PerspectSliderMenuHeader.xib */; };
+		0137932C1E00EE2A00E5814D /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0137932B1E00EE2A00E5814D /* CustomImageView.swift */; };
+		0137932E1E0125D500E5814D /* setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0137932D1E0125D500E5814D /* setting@2x.png */; };
+		013793301E01373900E5814D /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0137932F1E01373900E5814D /* close@2x.png */; };
 		0137B40E1C7C0C3E00523732 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0137B40D1C7C0C3E00523732 /* AppDelegate.swift */; };
 		0137B4151C7C0C3E00523732 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0137B4141C7C0C3E00523732 /* Assets.xcassets */; };
 		0137B4181C7C0C3E00523732 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0137B4161C7C0C3E00523732 /* LaunchScreen.storyboard */; };
@@ -14,12 +19,18 @@
 		0137B42E1C7C0C3F00523732 /* XRSliderMenu_masterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0137B42D1C7C0C3F00523732 /* XRSliderMenu_masterUITests.swift */; };
 		0137B4441C7C0E3200523732 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0137B4431C7C0E3200523732 /* MenuViewController.swift */; };
 		0137B4461C7C0E3B00523732 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0137B4451C7C0E3B00523732 /* MainViewController.swift */; };
+		0143EDC81DFF9BA6004E5873 /* bg.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 0143EDC71DFF9BA6004E5873 /* bg.jpeg */; };
 		01943F321C7C0FED002A4D0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01943F311C7C0FED002A4D0D /* Main.storyboard */; };
 		01943F341C7C112F002A4D0D /* SliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01943F331C7C112F002A4D0D /* SliderViewController.swift */; };
 		01943F431C7C3F46002A4D0D /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01943F421C7C3F46002A4D0D /* RootNavigationController.swift */; };
 		01943F451C7C609B002A4D0D /* head.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01943F441C7C609B002A4D0D /* head.jpg */; };
 		01943F491C7C72E8002A4D0D /* MyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01943F471C7C72E8002A4D0D /* MyCell.swift */; };
 		01943F4A1C7C72E8002A4D0D /* MyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01943F481C7C72E8002A4D0D /* MyCell.xib */; };
+		01CAD0F21DFAABE800DE877B /* CATransform3D+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CAD0F11DFAABE800DE877B /* CATransform3D+Extension.swift */; };
+		01CAD0F51DFAC8B900DE877B /* PerspectSliderMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CAD0F41DFAC8B900DE877B /* PerspectSliderMenuViewController.swift */; };
+		01CAD0F71DFAC92D00DE877B /* PerspectBottomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CAD0F61DFAC92D00DE877B /* PerspectBottomViewController.swift */; };
+		01CAD0F91DFAC93A00DE877B /* PerspectTopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CAD0F81DFAC93A00DE877B /* PerspectTopViewController.swift */; };
+		01F1A3EF1DFA926B00703B5D /* ScaleMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F1A3EE1DFA926B00703B5D /* ScaleMenuViewController.swift */; };
 		01F4920A1C7D7F950097E99B /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F492091C7D7F950097E99B /* WalletViewController.swift */; };
 		01F4920D1C7DC6550097E99B /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F4920B1C7DC6550097E99B /* MessageCell.swift */; };
 		01F4920E1C7DC6550097E99B /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01F4920C1C7DC6550097E99B /* MessageCell.xib */; };
@@ -46,6 +57,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		013793261E00EC0E00E5814D /* PerspectSliderMenuHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerspectSliderMenuHeader.swift; sourceTree = "<group>"; };
+		013793281E00EC1C00E5814D /* PerspectSliderMenuHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PerspectSliderMenuHeader.xib; sourceTree = "<group>"; };
+		0137932B1E00EE2A00E5814D /* CustomImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
+		0137932D1E0125D500E5814D /* setting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "setting@2x.png"; sourceTree = "<group>"; };
+		0137932F1E01373900E5814D /* close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@2x.png"; sourceTree = "<group>"; };
 		0137B40A1C7C0C3E00523732 /* XRSliderMenu-master.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "XRSliderMenu-master.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0137B40D1C7C0C3E00523732 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0137B4141C7C0C3E00523732 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,12 +75,18 @@
 		0137B42F1C7C0C3F00523732 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0137B4431C7C0E3200523732 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		0137B4451C7C0E3B00523732 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		0143EDC71DFF9BA6004E5873 /* bg.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpeg; sourceTree = "<group>"; };
 		01943F311C7C0FED002A4D0D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		01943F331C7C112F002A4D0D /* SliderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderViewController.swift; sourceTree = "<group>"; };
 		01943F421C7C3F46002A4D0D /* RootNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
 		01943F441C7C609B002A4D0D /* head.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = head.jpg; sourceTree = "<group>"; };
 		01943F471C7C72E8002A4D0D /* MyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCell.swift; sourceTree = "<group>"; };
 		01943F481C7C72E8002A4D0D /* MyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCell.xib; sourceTree = "<group>"; };
+		01CAD0F11DFAABE800DE877B /* CATransform3D+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CATransform3D+Extension.swift"; sourceTree = "<group>"; };
+		01CAD0F41DFAC8B900DE877B /* PerspectSliderMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerspectSliderMenuViewController.swift; sourceTree = "<group>"; };
+		01CAD0F61DFAC92D00DE877B /* PerspectBottomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerspectBottomViewController.swift; sourceTree = "<group>"; };
+		01CAD0F81DFAC93A00DE877B /* PerspectTopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerspectTopViewController.swift; sourceTree = "<group>"; };
+		01F1A3EE1DFA926B00703B5D /* ScaleMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleMenuViewController.swift; sourceTree = "<group>"; };
 		01F492091C7D7F950097E99B /* WalletViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
 		01F4920B1C7DC6550097E99B /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		01F4920C1C7DC6550097E99B /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
@@ -98,6 +120,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0137932A1E00EDE900E5814D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0137932B1E00EE2A00E5814D /* CustomImageView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		0137B4011C7C0C3E00523732 = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +182,7 @@
 		0137B43B1C7C0CDF00523732 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				0137932A1E00EDE900E5814D /* Extensions */,
 				01943F461C7C72AD002A4D0D /* Views */,
 				01943F3D1C7C3A15002A4D0D /* Resources */,
 				0137B43C1C7C0CEB00523732 /* Controllers */,
@@ -162,11 +193,14 @@
 		0137B43C1C7C0CEB00523732 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				01CAD0F31DFAC84600DE877B /* PerspectSliderMenu */,
 				01943F421C7C3F46002A4D0D /* RootNavigationController.swift */,
 				0137B4431C7C0E3200523732 /* MenuViewController.swift */,
 				0137B4451C7C0E3B00523732 /* MainViewController.swift */,
 				01943F331C7C112F002A4D0D /* SliderViewController.swift */,
 				01F492091C7D7F950097E99B /* WalletViewController.swift */,
+				01F1A3EE1DFA926B00703B5D /* ScaleMenuViewController.swift */,
+				01CAD0F11DFAABE800DE877B /* CATransform3D+Extension.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -174,6 +208,9 @@
 		01943F3D1C7C3A15002A4D0D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0137932D1E0125D500E5814D /* setting@2x.png */,
+				0137932F1E01373900E5814D /* close@2x.png */,
+				0143EDC71DFF9BA6004E5873 /* bg.jpeg */,
 				01F4920F1C7DD42C0097E99B /* gz.jpeg */,
 				01943F441C7C609B002A4D0D /* head.jpg */,
 			);
@@ -189,8 +226,20 @@
 				01F4920C1C7DC6550097E99B /* MessageCell.xib */,
 				01F492111C7DD5BC0097E99B /* MessageFooterView.xib */,
 				01F492131C7DD7270097E99B /* MessageFooterView.swift */,
+				013793261E00EC0E00E5814D /* PerspectSliderMenuHeader.swift */,
+				013793281E00EC1C00E5814D /* PerspectSliderMenuHeader.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		01CAD0F31DFAC84600DE877B /* PerspectSliderMenu */ = {
+			isa = PBXGroup;
+			children = (
+				01CAD0F41DFAC8B900DE877B /* PerspectSliderMenuViewController.swift */,
+				01CAD0F61DFAC92D00DE877B /* PerspectBottomViewController.swift */,
+				01CAD0F81DFAC93A00DE877B /* PerspectTopViewController.swift */,
+			);
+			path = PerspectSliderMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,13 +310,17 @@
 				TargetAttributes = {
 					0137B4091C7C0C3E00523732 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = AYCJR8SJVG;
+						LastSwiftMigration = 0800;
 					};
 					0137B41D1C7C0C3F00523732 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 						TestTargetID = 0137B4091C7C0C3E00523732;
 					};
 					0137B4281C7C0C3F00523732 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 						TestTargetID = 0137B4091C7C0C3E00523732;
 					};
 				};
@@ -300,10 +353,14 @@
 				01F492101C7DD42C0097E99B /* gz.jpeg in Resources */,
 				01943F321C7C0FED002A4D0D /* Main.storyboard in Resources */,
 				01F4920E1C7DC6550097E99B /* MessageCell.xib in Resources */,
+				0143EDC81DFF9BA6004E5873 /* bg.jpeg in Resources */,
 				0137B4181C7C0C3E00523732 /* LaunchScreen.storyboard in Resources */,
 				0137B4151C7C0C3E00523732 /* Assets.xcassets in Resources */,
+				0137932E1E0125D500E5814D /* setting@2x.png in Resources */,
+				013793291E00EC1C00E5814D /* PerspectSliderMenuHeader.xib in Resources */,
 				01F492121C7DD5BC0097E99B /* MessageFooterView.xib in Resources */,
 				01943F451C7C609B002A4D0D /* head.jpg in Resources */,
+				013793301E01373900E5814D /* close@2x.png in Resources */,
 				01943F4A1C7C72E8002A4D0D /* MyCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,10 +390,17 @@
 				01F492141C7DD7270097E99B /* MessageFooterView.swift in Sources */,
 				01F4920D1C7DC6550097E99B /* MessageCell.swift in Sources */,
 				0137B4441C7C0E3200523732 /* MenuViewController.swift in Sources */,
+				01F1A3EF1DFA926B00703B5D /* ScaleMenuViewController.swift in Sources */,
+				01CAD0F21DFAABE800DE877B /* CATransform3D+Extension.swift in Sources */,
 				01F4920A1C7D7F950097E99B /* WalletViewController.swift in Sources */,
 				0137B40E1C7C0C3E00523732 /* AppDelegate.swift in Sources */,
+				013793271E00EC0E00E5814D /* PerspectSliderMenuHeader.swift in Sources */,
+				0137932C1E00EE2A00E5814D /* CustomImageView.swift in Sources */,
 				01943F491C7C72E8002A4D0D /* MyCell.swift in Sources */,
 				0137B4461C7C0E3B00523732 /* MainViewController.swift in Sources */,
+				01CAD0F71DFAC92D00DE877B /* PerspectBottomViewController.swift in Sources */,
+				01CAD0F51DFAC8B900DE877B /* PerspectSliderMenuViewController.swift in Sources */,
+				01CAD0F91DFAC93A00DE877B /* PerspectTopViewController.swift in Sources */,
 				01943F431C7C3F46002A4D0D /* RootNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -469,10 +533,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = AYCJR8SJVG;
 				INFOPLIST_FILE = "XRSliderMenu-master/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kkguan.XRSliderMenu-master";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -480,10 +546,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = AYCJR8SJVG;
 				INFOPLIST_FILE = "XRSliderMenu-master/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kkguan.XRSliderMenu-master";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -495,6 +563,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kkguan.XRSliderMenu-masterTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/XRSliderMenu-master.app/XRSliderMenu-master";
 			};
 			name = Debug;
@@ -507,6 +576,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kkguan.XRSliderMenu-masterTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/XRSliderMenu-master.app/XRSliderMenu-master";
 			};
 			name = Release;
@@ -518,6 +588,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kkguan.XRSliderMenu-masterUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "XRSliderMenu-master";
 				USES_XCTRUNNER = YES;
 			};
@@ -530,6 +601,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kkguan.XRSliderMenu-masterUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "XRSliderMenu-master";
 				USES_XCTRUNNER = YES;
 			};

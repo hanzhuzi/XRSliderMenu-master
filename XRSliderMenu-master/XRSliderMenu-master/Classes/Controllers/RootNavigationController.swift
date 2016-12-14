@@ -13,9 +13,9 @@ class RootNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationBar.setBackgroundImage(UIImage(named: "nav_bg"), forBarMetrics: .Default)
-        self.navigationBar.barStyle = .Black // Default： 底部有黑色的线 Black：没有黑色的线 字体是白色
-        self.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont(name: "Arial Unicode MS", size: 16.0)!, NSForegroundColorAttributeName : UIColor.whiteColor()]
+        self.navigationBar.setBackgroundImage(UIImage(named: "nav_bg"), for: .default)
+        self.navigationBar.barStyle = .black // Default： 底部有黑色的线 Black：没有黑色的线 字体是白色
+        self.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont.systemFont(ofSize: 16.0), NSForegroundColorAttributeName : UIColor.white]
     }
     
     override func didReceiveMemoryWarning() {
