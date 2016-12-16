@@ -10,15 +10,28 @@
 
 import UIKit
 
+@objc protocol PerspectTopViewControllerDelegate: NSObjectProtocol {
+    
+    @objc func didTapSettingItem()
+    @objc func didTapViewControllerAnywhere()
+}
+
 class PerspectTopViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var myTableView: UITableView!
-    var tapSettingClosure: (() -> Swift.Void)?
-    
+    weak var delegate: PerspectTopViewControllerDelegate?
     
     @IBAction func settingBtnAction(_ sender: UIButton) {
-        if let closure = tapSettingClosure {
-            closure()
+        
+        if delegate != nil && delegate!.responds(to: #selector(PerspectTopViewControllerDelegate.didTapSettingItem)) {
+            delegate!.didTapSettingItem()
+        }
+    }
+    
+    func tapGestureAction(tapGesture: UITapGestureRecognizer) {
+        
+        if delegate != nil && delegate!.responds(to: #selector(PerspectTopViewControllerDelegate.didTapViewControllerAnywhere)) {
+            delegate!.didTapViewControllerAnywhere()
         }
     }
     
@@ -36,6 +49,10 @@ class PerspectTopViewController: UIViewController, UITableViewDelegate, UITableV
         self.myTableView.tableFooterView = UIView()
         self.myTableView.delegate = self
         self.myTableView.dataSource = self
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapGestureAction(tapGesture:)))
+        tapGesture.numberOfTapsRequired = 1
+        self.view.addGestureRecognizer(tapGesture)
     }
     
     override func didReceiveMemoryWarning() {

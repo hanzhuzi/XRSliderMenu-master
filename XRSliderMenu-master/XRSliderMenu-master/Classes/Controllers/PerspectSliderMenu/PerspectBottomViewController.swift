@@ -10,10 +10,17 @@
 
 import UIKit
 
+@objc protocol PerspectBottomViewControllerDelegate: NSObjectProtocol {
+    
+    @objc func didTapCloseItem()
+}
+
 class PerspectBottomViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var segmentControl: UISegmentedControl!
     var myTableView: UITableView!
+    weak var delegate: PerspectBottomViewControllerDelegate?
+    
     lazy var dataArray: [String] = ["好言相券", "个人资料", "账户安全", "地址管理", "推送消息设置", "我要反馈", "清除缓存", "帮助中心", "客户电话", "关于我们"]
     var widthForTable: CGFloat = 0.0 {
         
@@ -24,13 +31,11 @@ class PerspectBottomViewController: UIViewController, UITableViewDelegate, UITab
             self.myTableView.tableHeaderView = headerView
         }
     }
-    var tapCloseBtnClosure: (() -> Swift.Void)?
-
     
     func closeBtnAction() {
         
-        if let closure = tapCloseBtnClosure {
-            closure()
+        if delegate != nil && delegate!.responds(to: #selector(PerspectBottomViewControllerDelegate.didTapCloseItem)) {
+            delegate!.didTapCloseItem()
         }
     }
     

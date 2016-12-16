@@ -14,8 +14,9 @@
 
 import UIKit
 
-private let maxDragPosX: CGFloat = 200.0
+private let maxDragPostionXOffset: CGFloat = 200.0
 private let animationTime: TimeInterval = 0.3
+private let dragPostionOffsetToLeftPercent: CGFloat = 0.5
 private let scale: CGFloat = 0.3
 
 enum SliderMenuState: Int {
@@ -27,13 +28,13 @@ enum SliderMenuState: Int {
     case close
 }
 
-class PerspectSliderMenuViewController: UIViewController, CAAnimationDelegate {
+class PerspectSliderMenuViewController: UIViewController , PerspectTopViewControllerDelegate, PerspectBottomViewControllerDelegate {
     
     var topViewCtrl: PerspectTopViewController!
     var bottomViewCtrl: PerspectBottomViewController!
     var dragFromLeftToRight: Bool = false
     var panGesViewPosX: CGFloat = 0.0
-    var precent: CGFloat = 0.0
+    var percent: CGFloat = 0.0
     var state: SliderMenuState = .begin
     
     func addChildViewCtrlToParant(viewCtrl: UIViewController) {
@@ -49,36 +50,26 @@ class PerspectSliderMenuViewController: UIViewController, CAAnimationDelegate {
     func setupViewCtrollers() {
         
         topViewCtrl = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PerspectTopViewController") as! PerspectTopViewController
-        topViewCtrl.tapSettingClosure = { [weak self] in
-            if let weakSelf = self {
-                if weakSelf.state == .open {
-                    weakSelf.animateForView(isOpen: false)
-                }
-                else if weakSelf.state == .close {
-                    weakSelf.animateForView(isOpen: true)
-                }
-            }
-        }
+        topViewCtrl.delegate = self
         
         bottomViewCtrl = PerspectBottomViewController()
-        bottomViewCtrl.tapCloseBtnClosure = { [weak self] in
-            if let weakSelf = self {
-                if weakSelf.state == .open {
-                    weakSelf.animateForView(isOpen: false)
-                }
-                else if weakSelf.state == .close {
-                    weakSelf.animateForView(isOpen: true)
-                }
-            }
-        }
+        bottomViewCtrl.delegate = self
+        
         self.addChildViewCtrlToParant(viewCtrl: bottomViewCtrl)
         self.addChildViewCtrlToParant(viewCtrl: topViewCtrl)
         
         var topTransform = CGAffineTransform(scaleX: 1.0 - scale, y: 1.0 - scale)
-        topTransform = topTransform.translatedBy(x: maxDragPosX, y: 0)
+        topTransform = topTransform.concatenating(CGAffineTransform(translationX: maxDragPostionXOffset, y: 0.0))
         let tempView = UIView(frame: topViewCtrl.view.frame)
         tempView.transform = topTransform
         bottomViewCtrl.widthForTable = tempView.frame.origin.x
+    }
+    
+    func setup() {
+        
+        let bgImageView = UIImageView(image: UIImage(named: "bg.jpeg"))
+        bgImageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        self.view.addSubview(bgImageView)
     }
     
     override func viewDidLoad() {
@@ -86,10 +77,7 @@ class PerspectSliderMenuViewController: UIViewController, CAAnimationDelegate {
         
         // Do any additional setup after loading the view.
         self.view.backgroundColor = UIColor.white
-        let bgImageView = UIImageView(image: UIImage(named: "bg.jpeg"))
-        bgImageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
-        self.view.addSubview(bgImageView)
-        
+        self.setup()
         self.setupViewCtrollers()
         self.addPanGesture()
         self.bottomViewCtrl.view.transform = CGAffineTransform(scaleX: scale, y: scale)
@@ -128,8 +116,8 @@ class PerspectSliderMenuViewController: UIViewController, CAAnimationDelegate {
             if posX < 0 {
                 posX = 0.0
             }
-            else if posX > maxDragPosX {
-                posX = maxDragPosX
+            else if posX > maxDragPostionXOffset {
+                posX = maxDragPostionXOffset
             }
             
             if self.dragFromLeftToRight {
@@ -140,24 +128,23 @@ class PerspectSliderMenuViewController: UIViewController, CAAnimationDelegate {
                 panGes.setTranslation(CGPoint.zero, in: self.view)
             }
             
-            precent = posX / maxDragPosX
-            if precent >= 1.0 {
+            percent = posX / maxDragPostionXOffset
+            if percent >= 1.0 {
                 state = .open
             }
-            else if precent == 0.0 {
+            else if percent == 0.0 {
                 state = .close
             }
-            debugPrint("posX: \(posX)  precent: \(precent)")
-            self.interactiveProgressForView(precent: precent)
+            self.interactiveProgressForView(percent: percent)
         case .ended, .cancelled:
-            if precent == 1.0 {
+            if percent == 1.0 {
                 return
             }
             else {
                 if state == .animating || state == .close || state == .open {
                     return
                 }
-                if precent > 0.5 {
+                if percent > dragPostionOffsetToLeftPercent {
                     // 展开
                     self.animateForView(isOpen: true)
                 }
@@ -175,13 +162,13 @@ class PerspectSliderMenuViewController: UIViewController, CAAnimationDelegate {
     /**
      - 驱动手势打开/关闭侧滑菜单
      */
-    func interactiveProgressForView(precent: CGFloat) {
+    func interactiveProgressForView(percent: CGFloat) {
         
-        var topTransform = CGAffineTransform(scaleX: 1.0 - (scale * precent), y: 1.0 - (scale * precent))
-        topTransform = topTransform.translatedBy(x: maxDragPosX  * precent, y: 0)
+        var topTransform = CGAffineTransform(scaleX: 1.0 - (scale * percent), y: 1.0 - (scale * percent))
+        topTransform = topTransform.concatenating(CGAffineTransform(translationX: maxDragPostionXOffset  * percent, y: 0.0))
         self.topViewCtrl.view.transform = topTransform
         
-        let bottomTransform = CGAffineTransform(scaleX: (1.0 - scale) * precent + scale, y: (1.0 - scale) * precent + scale)
+        let bottomTransform = CGAffineTransform(scaleX: (1.0 - scale) * percent + scale, y: (1.0 - scale) * percent + scale)
         self.bottomViewCtrl.view.transform = bottomTransform
     }
     
@@ -191,11 +178,16 @@ class PerspectSliderMenuViewController: UIViewController, CAAnimationDelegate {
     func animateForView(isOpen: Bool) {
         
         state = .animating
-        let topToTransform = CGAffineTransform(scaleX: 1.0 - scale, y: 1.0 - scale).translatedBy(x: maxDragPosX, y: 0)
+        let scaleTransform = CGAffineTransform(scaleX: 1.0 - scale, y: 1.0 - scale)
+        let translateTransform = CGAffineTransform(translationX: maxDragPostionXOffset, y: 0.0)
+        let topToTransform = scaleTransform.concatenating(translateTransform)
         let bottomToTransform = CGAffineTransform(scaleX: scale, y: scale)
         
+        let openTime = (1.0 - percent) + 0.5
+        let closeTime = percent + 0.5
+        
         if isOpen {
-            UIView.animate(withDuration: animationTime * TimeInterval(1.0 - precent + 0.5),
+            UIView.animate(withDuration: animationTime * TimeInterval(openTime),
                            delay: 0.0,
                            options: .curveEaseInOut,
                            animations: { [weak self] in
@@ -206,13 +198,13 @@ class PerspectSliderMenuViewController: UIViewController, CAAnimationDelegate {
                 }, completion: { [weak self](flag) in
                     if let weakSelf = self {
                         weakSelf.state = .open
-                        weakSelf.precent = 1.0
-                        weakSelf.panGesViewPosX = maxDragPosX
+                        weakSelf.percent = 1.0
+                        weakSelf.panGesViewPosX = maxDragPostionXOffset
                     }
             })
         }
         else {
-            UIView.animate(withDuration: animationTime * TimeInterval(precent + 0.5),
+            UIView.animate(withDuration: animationTime * TimeInterval(closeTime),
                            delay: 0.0,
                            options: .curveEaseInOut,
                            animations: { [weak self] in
@@ -223,14 +215,38 @@ class PerspectSliderMenuViewController: UIViewController, CAAnimationDelegate {
                 }, completion: { [weak self](flag) in
                     if let weakSelf = self {
                         weakSelf.state = .close
-                        weakSelf.precent = 0.0
+                        weakSelf.percent = 0.0
                         weakSelf.panGesViewPosX = 0.0
                     }
             })
         }
     }
     
+    // MARK: - PerspectTopViewControllerDelegate
+    func didTapSettingItem() {
+        
+        if self.state == .open {
+            self.animateForView(isOpen: false)
+        }
+        else if self.state == .close || self.state == .begin {
+            self.animateForView(isOpen: true)
+        }
+    }
     
+    func didTapViewControllerAnywhere() {
+        
+        if self.state == .open {
+            self.animateForView(isOpen: false)
+        }
+    }
+    
+    // MARK: - PerspectBottomViewControllerDelegate
+    func didTapCloseItem() {
+        
+        if self.state == .open {
+            self.animateForView(isOpen: false)
+        }
+    }
 }
 
 
